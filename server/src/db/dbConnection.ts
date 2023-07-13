@@ -4,7 +4,7 @@ import {
   getPassword,
   getServer,
   getUsername,
-} from "../../config";
+} from "../config";
 
 const { Sequelize } = require("sequelize");
 

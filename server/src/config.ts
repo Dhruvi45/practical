@@ -23,3 +23,7 @@ export const getUsername = () => {
 export const getPassword = () => {
   return process.env.Password;
 };
+
+export function getJwtSecretKey():string{
+  return process.env.JWT_SECRET_KEY || "";
+};
