@@ -1,0 +1,13 @@
+.card{
+    border: 1px solid #ff9966 !important;
+    width: 40% !important;
+}
+.card-header {
+    background-color: #ff9966 !important;
+    color: #fff !important;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.card-body{
+    padding: 30px !important;
+}
