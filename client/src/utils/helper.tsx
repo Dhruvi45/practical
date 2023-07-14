@@ -1,11 +1,11 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 const backendBseUrl = "http://localhost:3001"
 
-export const axiosAuth = (reqUrl: string, reqBody: Object) => {
-  return new Promise((resolve, reject) => {
+export function axiosAuth<T>(reqUrl: string, reqBody: Object) {
+  return new Promise<AxiosResponse<T>>((resolve, reject) => {
     axios
-      .post(backendBseUrl+reqUrl, reqBody)
+      .post(backendBseUrl + reqUrl, reqBody)
       .then((response) => {
         resolve(response);
       })

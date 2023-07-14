@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Card, Form, Col } from "react-bootstrap";
 import "./Auth.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [isValidate, setIsValidate] = useState<boolean>(false);
+  const navigate = useNavigate();
   return (
     <>
       <div className="d-flex justify-content-center align-items-center vh-100">
@@ -33,12 +34,18 @@ export default function Login() {
                 <Form.Control type="text" placeholder="Password" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
-              <Button
-                className="custom-btn d-flex justify-content-end"
-                type="submit"
-              >
+              <Button className="custom-btn" type="submit">
                 Submit form
               </Button>
+              <p className="d-flex justify-content-center align-items-center  text-muted ">
+                Don't have account please{"  "}
+                <button
+                  className="link-btn ms-1"
+                  onClick={() => navigate("/signUp")}
+                >
+                  signUp
+                </button>
+              </p>
             </Form>
           </Card.Body>
         </Card>

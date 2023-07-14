@@ -5,21 +5,44 @@ import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { axiosAuth } from "../../utils/helper";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { UserAction } from "../../Redux/Action/auth";
+import { CommonResponse, User } from "../../utils/commonInterfase";
+import { AxiosResponse } from "axios";
+
+export interface ApiResponse {
+  token: string;
+  user: {
+    CreatedAt: string;
+    Email: string;
+    FirstName: string;
+    LastName: string;
+    Password: string;
+    UpdatedAt: string;
+    UserId: number;
+  };
+  message: string;
+  status: string;
+}
+
 
 export default function SignUp() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data: any) => {
-    data.Password = btoa(data.Password);
-    axiosAuth("/user/create", data)
-      .then((res) => {
+  const onSubmit = (data:any) => {
+    if (data.Password) data.Password = btoa(data.Password);
+    axiosAuth<ApiResponse>("/user/create", data)
+    .then((res: AxiosResponse<ApiResponse>) => {
         console.log("res", res);
+        UserAction(res.data.user);
       })
-      .catch((error) => {
+      .catch((error:any) => {
         console.log("error", error);
         toast.error(error.response.data.message, {
           position: toast.POSITION.TOP_CENTER,
@@ -113,6 +136,15 @@ export default function SignUp() {
             <Button className="custom-btn " type="submit">
               Submit form
             </Button>
+            <p className="d-flex justify-content-center align-items-center  text-muted ">
+              Already have account please{"  "}
+              <button
+                className="link-btn ms-1"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
+            </p>
           </Form>
         </Card.Body>
       </Card>
