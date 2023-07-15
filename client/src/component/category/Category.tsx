@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Row, Col } from "react-bootstrap";
 import "../../assets/style/category.css";
 interface Props {
   category: { categoryItem: string; offer: number };
@@ -9,7 +9,7 @@ export default function Category(props: Props) {
   const { category } = props;
   return (
     <>
-      <Card>
+      <Card className="category-card">
         <Card.Body>
           <Card.Title>{category.categoryItem}</Card.Title>
           <Card.Img
@@ -17,8 +17,16 @@ export default function Category(props: Props) {
             variant="top"
             src={require(`../../assets/images/${category.categoryItem}.jpg`)}
           />
-          <Card.Text>{category.offer}% offor</Card.Text>
-          <Button variant="primary">View all</Button>
+          <Row>
+            <Col>
+              <Card.Text>{category.offer}% offor</Card.Text>
+            </Col>
+            <Col>
+              <Button variant="primary" className="custom-btn">
+                View all
+              </Button>
+            </Col>
+          </Row>
         </Card.Body>
       </Card>
     </>

@@ -1,3 +1,10 @@
 .category-img {
   height: 50%;
 }
+.category-card{
+  height: 70%;
+}
+
+.category-card .card-title{
+  font-size: 35px;
+}
