@@ -7,7 +7,7 @@ import { ProductRouter } from "./routers/product";
 import { UserRouter } from "./routers/user";
 const app = express();
 
-// sequelizeConnection.sync();
+sequelizeConnection.sync();
 
 app.use(bodyParser.json());
 
