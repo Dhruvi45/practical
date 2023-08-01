@@ -9,8 +9,8 @@ const app = express();
 
 sequelizeConnection.sync();
 
-app.use(bodyParser.json());
-
+// app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: "500mb" }));
 app.use(express.json());
 app.use(cors())
 app.use(ProductRouter)
