@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { Container, Row } from 'react-bootstrap'
 import Header from '../header/Header'
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 interface Props {
     children: ReactNode

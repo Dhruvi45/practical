@@ -1,0 +1,23 @@
+.productImg{
+    height:350px;
+    width: 218px;
+    padding: 12px;
+}
+
+.productCard{
+    margin: 10px;
+    display: flex;
+    border: 1px solid rgb(172, 163, 163);
+    border-radius: 10px;
+}
+
+.productDetail{
+    margin-left: 20px;  
+    margin-top: 30px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.productDetail p{
+    font-size: 20px;
+}

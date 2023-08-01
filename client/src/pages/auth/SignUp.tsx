@@ -7,7 +7,7 @@ import { axiosAuth } from "../../utils/helper";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { UserAction } from "../../Redux/Action/auth";
-import { CommonResponse, User } from "../../utils/commonInterfase";
+// import { CommonResponse, User } from "../../utils/commonInterfase";
 import { AxiosResponse } from "axios";
 
 export interface ApiResponse {
